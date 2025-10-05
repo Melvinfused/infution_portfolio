@@ -1,0 +1,35 @@
+/* General reset */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Doto Sans', system-ui, sans-serif;
+  background-color: #000;
+  color: white;
+  overflow: hidden;
+}
+
+/* Main container */
+.app-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}

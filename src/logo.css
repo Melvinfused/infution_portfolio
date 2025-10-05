@@ -1,0 +1,30 @@
+.animated-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    object-fit: contain;
+    pointer-events: none;
+    opacity: 0.95;
+    transform-style: preserve-3d;
+    filter:
+      drop-shadow(0 0 3px rgba(255, 255, 255, 0.874))
+      drop-shadow(0 0 10px rgb(237, 249, 249));
+    animation:
+      floatTilt 6s ease-in-out infinite,
+      glowCycle 4s ease-in-out infinite;
+  }
+  
+  @keyframes glowCycle {
+    0%, 100% {
+      filter:
+        drop-shadow(0 0 3px rgba(209, 255, 246, 0.751))
+        drop-shadow(0 0 8px rgba(189, 255, 255, 0.1));
+    }
+    50% {
+      filter:
+        drop-shadow(0 0 6px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 0 12px rgba(0, 255, 255, 0.3));
+    }
+  }
+  

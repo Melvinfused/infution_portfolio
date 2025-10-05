@@ -1,0 +1,10 @@
+  .social-dock a {
+    display: inline-block;
+    color: #fff;
+    transition: transform 0.2s, color 0.2s;
+  }
+  
+  .social-dock a:hover {
+    color: #bfeaf1; /* highlight colour */
+  }
+  

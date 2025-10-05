@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+.scroll-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.scroll-layer {
+  display: flex;
+  font-family: 'Michroma', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 5rem;
+  letter-spacing: 0.15rem;
+  color: #fff;
+  animation: colorShift 5s linear infinite alternate;
+}
+
+.layer2 {
+  font-size: 2.5rem;
+  opacity: 0.8;
+  animation: colorShift2 5s linear infinite alternate;
+}
+
+.scroll-layer span {
+  display: inline-block;
+  padding-right: 5rem;
+}
+
+@keyframes colorShift {
+  0% { color: #fff; }
+  25% { color: #f0f0f0; }
+  50% { color: #fff; }
+  75% { color: #ddd; }
+  100% { color: #fff; }
+}
+
+@keyframes colorShift2 {
+  0% { color: #fff; }
+  20% { color: #aaa; }
+  40% { color: #fff; }
+  60% { color: #bbb; }
+  80% { color: #fff; }
+  100% { color: #ccc; }
+}
