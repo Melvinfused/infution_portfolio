@@ -1,34 +1,25 @@
-name: Build and Deploy React App
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main   # change if your main branch has a different name
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build React app
-        run: npm run build
+      - name: Build
+        run: npm run build   # ensure this outputs to your publish_dir
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./dist
-        
+          personal_token: ${{ secrets.AUTO_DEPLOY_KEY }}
+          publish_dir: ./dist  # replace with your build output folder
