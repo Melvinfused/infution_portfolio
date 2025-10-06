@@ -34,7 +34,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # built-in token
-          publish_dir: ./dist                         # correct Vite build folder
-          publish_branch: gh-pages
-          force_orphan: true
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./dist
+        
