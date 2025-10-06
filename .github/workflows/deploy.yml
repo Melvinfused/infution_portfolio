@@ -41,6 +41,8 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # automatic token
-          publish_dir: ./build                         # React build folder
-          publish_branch: gh-pages                     # target branch for deployment
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
+          force_orphan: true   # overwrites existing branch safely
+    
