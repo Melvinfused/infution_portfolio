@@ -1,23 +1,24 @@
 name: Build and Deploy React App
 
+# Trigger workflow on push to main
 on:
   push:
     branches:
-      - main  # Trigger on pushes to main branch
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repo
-      - name: Checkout code
+      # 1. Checkout the repository
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # needed for proper deploy
+          fetch-depth: 0  # required for gh-pages deploy
 
       # 2. Setup Node.js
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
@@ -26,20 +27,20 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # 4. Build React app
+      # 4. Build the React app
       - name: Build
         run: npm run build
 
-      # 5. Configure Git identity (for commits)
+      # 5. Configure Git identity (for commits by Actions)
       - name: Configure Git user
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      # 6. Deploy to GitHub Pages
-      - name: Deploy
+      # 6. Deploy the build folder to gh-pages branch
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }} # automatic token
+          publish_dir: ./build                         # React build folder
+          publish_branch: gh-pages                     # target branch for deployment
