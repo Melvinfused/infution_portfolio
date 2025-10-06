@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 //import Bgn from './Bg.jsx';
 import Loader from './loader.jsx';
 import Logo from './logo.jsx';
-import MeshBG from './grain-bg.jsx';
+import ResponsiveBG from './ResponsiveBG.jsx';
 import ScrollingText from './ScrollingText.jsx';
+import Navbar from './navbar.jsx';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -28,10 +29,13 @@ const App = () => {
   }, []);
 
   return (
+    
 <>
+
   {loading ? <Loader /> : (
     <>
-      <MeshBG />
+      <Navbar />
+      <ResponsiveBG />
       <ScrollingText/>
       <Logo />
     </>
